@@ -1,0 +1,20 @@
+version: "1.0"
+
+settings:
+  target_dirs:
+    - ".claude/skills"
+  cache_dir: "~/.cache/skill-manager"
+  default_branch: "main"
+
+sources:
+  anthropic:
+    type: github
+    repo: "anthropics/skills"
+    path: "skills"
+
+skills:
+  - name: bead-planner
+    path: "./skills/bead-planner"
+
+  - name: skill-creator
+    path: "./skills/skill-creator"

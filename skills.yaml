@@ -3,6 +3,7 @@ version: "1.0"
 settings:
   target_dirs:
     - ".claude/skills"
+    - "~/.claude/skills"
   cache_dir: "~/.cache/skill-manager"
   default_branch: "main"
 

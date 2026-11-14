@@ -102,7 +102,9 @@ skills:
         level: user
 ```
 
-**Config lookup order:** `--config <path>` → `./skills.yaml` → `~/.config/skill-manager/skills.yaml`.
+**Which file is used:** commands take `--config <path>` if given, otherwise `./skills.yaml`, otherwise `~/.config/skill-manager/skills.yaml`. Settings are layered, lowest to highest: built-in defaults → `./skills.yaml` → `~/.config/skill-manager/skills.yaml` → `--config` file → [environment overrides](#environment-variables) (the `SKILL_MANAGER_*` variables are applied last, over every file) → CLI flags such as `--target`.
+
+This repo's own `skills.yaml` installs its bundled skills (`bead-planner`, `skill-creator` from `skills/`) into both `.claude/skills` and `~/.claude/skills`.
 
 <details>
 <summary><strong>Schema reference</strong></summary>
@@ -247,7 +249,7 @@ Target: /path/to/.claude/skills
 └─────────────┴─────────────────────────┴─────────────────┘
 ```
 
-`config list` shows what `sync-all` will touch:
+Tracked configs are stored in `~/.config/skill-manager/tracked-configs.yaml`. `config list` shows what `sync-all` will touch:
 
 ```
 Tracked configs: (2)
@@ -361,8 +363,7 @@ skill-manager sync
 
 ```
 target_dir/
-├── .skill-manager/
-│   └── registry.yaml       # tracks installed skills
+├── .skill-manager-manifest.json   # registry of installed skills
 └── skill-name/
     ├── SKILL.md            # main skill documentation
     └── [other files]       # scripts, configs, examples, etc.
@@ -373,6 +374,9 @@ target_dir/
 | Variable | Purpose |
 |----------|---------|
 | `GITHUB_TOKEN` | GitHub personal access token for private repositories (optional) |
+| `SKILL_MANAGER_CACHE_DIR` | Overrides `settings.cache_dir` |
+| `SKILL_MANAGER_DEFAULT_BRANCH` | Overrides `settings.default_branch` |
+| `SKILL_MANAGER_TARGET_DIRS` | Overrides `settings.target_dirs` (comma-separated) |
 
 ## Development
 
@@ -385,7 +389,7 @@ agent-skills/
 │   ├── compose/            # composition logic (markdown, files, assembler)
 │   ├── fetch/              # fetchers (GitHub, cache)
 │   └── utils/              # utilities (paths, output)
-├── skills/                 # skills authored in this repo
+├── skills/                 # skills authored/bundled here (bead-planner, skill-creator)
 ├── tests/                  # test suite
 ├── examples/               # usage examples
 └── pyproject.toml          # project metadata

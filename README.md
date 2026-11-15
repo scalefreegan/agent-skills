@@ -415,7 +415,7 @@ Contributions are welcome — please make sure tests pass (`uv run pytest`), new
 
 ## License
 
-No `LICENSE` file has been added to this repository yet.
+MIT. See [LICENSE](LICENSE).
 
 ## Author
 

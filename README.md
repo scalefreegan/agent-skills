@@ -16,7 +16,6 @@
   <sub><em>Many sources in, one composed set of skills out.</em></sub>
 </p>
 
-<!-- TODO: generate docs/hero.png from docs/hero-image-prompt.md -->
 
 <p align="center">
   <a href="#features">Features</a> ·

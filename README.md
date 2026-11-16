@@ -415,7 +415,11 @@ Contributions are welcome — please make sure tests pass (`uv run pytest`), new
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+[GNU Affero General Public License v3.0](LICENSE) (AGPL-3.0-only). You may use, change and share agent-skills, but if you distribute it or run a changed version as a network service, you must offer its users the complete source under the same license.
+
+`skills/skill-creator/` is Anthropic's skill and keeps its own Apache License 2.0 (see `skills/skill-creator/LICENSE.txt`).
+
+Versions published before 2026-11-16 were released under the MIT license.
 
 ## Author
 

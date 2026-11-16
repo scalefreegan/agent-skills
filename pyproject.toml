@@ -1,6 +1,8 @@
 [project]
 name = "skill-manager"
 version = "0.1.0"
+license = "AGPL-3.0-only"
+license-files = ["LICENSE"]
 description = "CLI tool for assembling composite skills from multiple sources"
 readme = "README.md"
 authors = [
